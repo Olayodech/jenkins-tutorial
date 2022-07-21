@@ -1,0 +1,12 @@
+From python:3-alpine
+
+EXPOSE 5000
+
+WORKDIR /app
+
+RUN python -m pip install --upgrade pip
+COPY requirements.txt .
+RUN pip
+COPY . .
+
+ENTRYPOINT python app.py
