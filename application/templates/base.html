@@ -9,12 +9,31 @@
 
         <main>
             <body>
-                <div>
-                    <a href="/index"> Home </a>
-                </div>
+                    <nav class="amber accent-4">
+                        <div class="nav-wrapper">
+                            <a href="/index" class="brand-logo">MEPOT</a>
+                            <ul id="nav-mobile" class="right hide-on-med-and-down">         
+                                <form>
+                                    <div class="input-field">
+                                        <input id="search" type="search" placeholder="click or search for an item...">
+                                  <!-- <label class="label-icon" for="search"><i class="material-icons">search</i></label> -->
+                                    </div>
+                              </form>
+                           </ul>
+                            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                              <li><a href="#">About</a></li>
+                              <li><a href="#">Login</a></li>
+                              <li><a href="#">Register</a></li>
+                            </ul>
+                        </div>
+                      </nav>
                 <hr>
+                <div class="container">
+                {% extends "material/base.html" %}
+                {% import "material/utils.html" as util %}                
                 {% block content %}
                 {% endblock %}
+            </div>
             </body>
         </main>
     </head>
