@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            {% if title %}
+                <title> {{ title }} - MEPOT </title>
+            {% else %}
+                <title> MEPOT</title>
+            {% endif %}
+
+        <main>
+            <body>
+                <div>
+                    <a href="/index"> Home </a>
+                </div>
+                <hr>
+                {% block content %}
+                {% endblock %}
+            </body>
+        </main>
+    </head>
+</html>
