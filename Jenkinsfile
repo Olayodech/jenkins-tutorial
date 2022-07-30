@@ -21,7 +21,7 @@ pipeline{
             {
                 steps{
                     sh 'pip3 install -r requirements.txt'
-                    sh 'pytest-3 --junitxml results.xml'
+                    // sh 'pytest-3 --junitxml results.xml'
                 }
             }
             stage ('Building Docker Image')
