@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-    <head>
+        <head>
             {% if title %}
                 <title> {{ title }} - MEPOT </title>
             {% else %}
                 <title> MEPOT</title>
             {% endif %}
-
+        </head>
         <main>
             <body>
                     <nav class="amber accent-4">
                         <div class="nav-wrapper">
-                            <a href="/index" class="brand-logo">MEPOT</a>
+                            <a href="{{ url_for('home.index') }}" class="brand-logo">MEPOT</a>
                             <ul id="nav-mobile" class="right hide-on-med-and-down">         
                                 <form>
                                     <div class="input-field">
@@ -29,12 +29,11 @@
                       </nav>
                 <hr>
                 <div class="container">
-                {% extends "material/base.html" %}
-                {% import "material/utils.html" as util %}                
-                {% block content %}
-                {% endblock %}
-            </div>
-            </body>
+                    {% extends "material/base.html" %}
+                    {% import "material/utils.html" as util %}                
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </body>       
         </main>
-    </head>
 </html>

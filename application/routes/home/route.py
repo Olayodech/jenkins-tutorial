@@ -6,7 +6,7 @@ from application.routes.home import bp
 # @app.route('/index')
 @bp.route('/')
 @bp.route('/index')
-def getHome():
+def index():
     user = {'username': 'Charles'}
     items = [
         {

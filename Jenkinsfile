@@ -1,15 +1,60 @@
 pipeline{
-    agent any 
-    stages{
-        stage('make Directory'){
-            steps{
-                sh "mkdir ~/jenkins-tutorial-test"
+    environment{
+        registry="olayodech/flask-app"
+        registryCredential='docker_hub_id'
+        dockerImage=""
+        HOME="${env.WORKSPACE}"
+    }
+    agent any {
+        stages{
+            stage ('Check out')
+            {
+                steps{
+                    sh 'git clone https://github.com/Olayodech/jenkins-tutorial.git'
+                    sh 'git checkout master'
+                }
+            }
+            stage ('Testing')
+            {
+                steps{
+                    sh 'pip install requirements.txt'
+                    sh 'pytest-3 --junitxml results.xml'
+                }
+            }
+            stage ('Building Docker Image')
+            {
+                steps{
+                    script{
+                        dockerImage=docker.build(registry)
+                    }
+                }
+            }
+            stage ('Push Image To Docker Hub')
+            {
+                steps{
+                    script{
+                        docker.withRegistry("registryCredential"){
+                            dockerImage.push("${env.BUILD_NUMBER}")
+                        }
+                    }
+                }
+            }
+            stage('Deploy to docker swarm')
+            {
+                steps{
+
+                }
+            }
+            stage('Cleaning up'){
+                steps{
+                    sh "docker rmi $registry:$BUILD_NUMBER"
+                }
             }
         }
-        stage('Make Files'){
-            steps{
-                sh "touch ~/jenkins-tutorial-test/file1 ~/jenkins-tutorial-test/file2"
-            }
+    }
+    post {
+        always {
+            junit "*.xml"
         }
     }
 }
