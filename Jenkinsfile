@@ -28,7 +28,6 @@ pipeline{
             {
                 steps{
                     script{
-                        sh "cd /application"
                         dockerImage=docker.build(registry)
                     }
                 }
