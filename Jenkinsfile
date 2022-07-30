@@ -14,7 +14,7 @@ pipeline{
                 steps{
                     git branch: 'main', credentialsId: 'github_access', url: 'https://github.com/Olayodech/jenkins-tutorial.git'
                     // sh 'git clone https://olayodech:github.com/Olayodech/jenkins-tutorial.git'
-                    sh 'git checkout master'
+                    sh 'git checkout main'
                 }
             }
             stage ('Testing')
