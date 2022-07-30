@@ -43,7 +43,7 @@ pipeline{
             stage('Deploy to docker swarm')
             {
                 steps{
-
+                    sh 'uname -a'
                 }
             }
             stage('Cleaning up'){
