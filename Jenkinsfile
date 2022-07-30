@@ -20,7 +20,7 @@ pipeline{
             stage ('Testing')
             {
                 steps{
-                    sh 'pip install requirements.txt'
+                    sh 'pip3 install -r requirements.txt'
                     sh 'pytest-3 --junitxml results.xml'
                 }
             }
