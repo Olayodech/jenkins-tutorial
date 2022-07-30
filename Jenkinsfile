@@ -5,9 +5,8 @@ pipeline{
         dockerImage=""
         HOME="${env.WORKSPACE}"
     }
-    // withCredentials([gitUsernamePassword(credentialsId: 'git_hub_token', gitToolName: 'git-tool')]) {
-    // }
-    agent any {
+   
+    agent any 
         stages{
             stage ('Check out')
             {
@@ -53,7 +52,6 @@ pipeline{
                 }
             }
         }
-    }
     post {
         always {
             junit "*.xml"
