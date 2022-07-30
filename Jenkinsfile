@@ -28,6 +28,7 @@ pipeline{
             {
                 steps{
                     script{
+                        sh "sudo usermod -a -G docker jenkins"
                         dockerImage=docker.build(registry)
                     }
                 }
