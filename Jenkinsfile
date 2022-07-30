@@ -5,14 +5,13 @@ pipeline{
         dockerImage=""
         HOME="${env.WORKSPACE}"
     }
-    withCredentials([gitUsernamePassword(credentialsId: 'git_hub_token', gitToolName: 'git-tool')]) {
-    }
-
+   
     agent any 
         stages{
             stage ('Check out')
             {
                 steps{
+                    git branch: 'main', credentialsId: 'github_access', url: 'https://github.com/Olayodech/jenkins-tutorial'
                     sh 'git clone https://github.com/Olayodech/jenkins-tutorial.git'
                     sh 'git checkout master'
                 }
