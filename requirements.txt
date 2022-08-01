@@ -18,7 +18,11 @@ Mako==1.2.1
 MarkupSafe==2.1.1
 mccabe==0.7.0
 platformdirs==2.5.2
+protobuf==3.20.1
 pylint==2.14.5
+pylint-flask==0.6
+pylint-flask-sqlalchemy==0.2.0
+pylint-plugin-utils==0.7
 PyMySQL==1.0.2
 python-dotenv==0.20.0
 SQLAlchemy==1.4.39
