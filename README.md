@@ -17,3 +17,8 @@ Currently, the application only has Product and Customer database model. However
 
 See schema screenshot
 usecase.png
+
+Technology stack:
+
+See attached image
+techstack.png
