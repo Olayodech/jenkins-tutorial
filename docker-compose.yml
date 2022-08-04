@@ -1,20 +1,22 @@
 version: "3.8"
 services:
-  # flask-app:
-  #   build: ./application
-  #   ports:
-  #     - target: 5000
-  #       published: 5000
-  #       protocol: tcp
-  #   depends_on: 
-  #     - db
-  #       nginx
+  flask-app:
+    # image: olayodech:flask-app-new
+    build: .
+    environment:
+      - SQLALCHEMY_DATABASE_URI=mysql+pymysql://olayodech:12345@db/product-dev-db
+    ports:
+      - target: 5000
+        published: 5000
+        protocol: tcp
+    depends_on: 
+      - db
+        # nginx
   db:
     image: mysql:latest
     restart: always
     environment:
       MYSQL_DATABASE: 'product-dev-db'
-      MYSQL_USER: 'olayodech'
       MYSQL_ROOT_PASSWORD: 12345
     ports:
       - target: 3306
@@ -33,5 +35,4 @@ services:
   #       target: /etc/nginx/nginx.conf
 
 volumes:
-  jenkins:
   my-db:

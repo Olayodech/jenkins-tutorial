@@ -1,39 +1,23 @@
 <!DOCTYPE html>
-<html>
-        <head>
-            {% if title %}
-                <title> {{ title }} - MEPOT </title>
-            {% else %}
-                <title> MEPOT</title>
+        {% include 'header.html'%}
+     
+<body>     
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+              {% for message in messages %}
+                <l1 style="color: orange;">{{ message }}</l1>
+              {% endfor %}
+            </ul>
             {% endif %}
-        </head>
-        <main>
-            <body>
-                    <nav class="amber accent-4">
-                        <div class="nav-wrapper">
-                            <a href="{{ url_for('home.index') }}" class="brand-logo">MEPOT</a>
-                            <ul id="nav-mobile" class="right hide-on-med-and-down">         
-                                <form>
-                                    <div class="input-field">
-                                        <input id="search" type="search" placeholder="click or search for an item...">
-                                  <!-- <label class="label-icon" for="search"><i class="material-icons">search</i></label> -->
-                                    </div>
-                              </form>
-                           </ul>
-                            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                              <li><a href="#">About</a></li>
-                              <li><a href="{{ url_for('users.login') }}">Login</a></li>
-                              <li><a href="{{ url_for('users.register')}}">Register</a></li>
-                            </ul>
-                        </div>
-                      </nav>
-                <hr>
-                <div class="container">
-                    {% extends "material/base.html" %}
-                    {% import "material/utils.html" as util %}                
-                    {% block content %}
-                    {% endblock %}
-                </div>
-            </body>       
-        </main>
-</html>
+        {% endwith %}
+        {% extends "material/base.html" %}
+        {% import "material/utils.html" as util %}                
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>  
+{% include 'footer.html' %}
+
+   
