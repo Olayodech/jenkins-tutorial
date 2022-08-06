@@ -16,7 +16,16 @@
                 </div>
           </form>
        </ul>
-       
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#">About</a></li>
+          
+          <li><a href="{{ url_for('users.login') }}">Login</a></li>
+          <li><a href="{{ url_for('users.register')}}">Register</a></li>
+          <li><a href="{{ url_for('product.new_product')}}">Create Product</a></li>
+
+          <!-- <li><a href="{{ url_for('users.logout') }}">Logout</a></li>
+          <li><a href="{{ url_for('product.new_product')}}"></a>Create Product</li> -->
+        </ul>
     </div>
   </nav>
 <hr>
