@@ -63,11 +63,10 @@ def create_app(config_class=Config):
     return app
 
 
-
 # login.login_view = 'login'
 
 if __name__=="__main__":
-    print(f'Application starting############')
+    print(f'Application starting####################')
     app = create_app()
     app.run(port=5000, debug=True, host='0.0.0.0')
     
