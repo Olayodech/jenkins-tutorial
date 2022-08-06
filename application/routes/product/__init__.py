@@ -2,4 +2,5 @@ from flask import Blueprint
 
 bp = Blueprint('product', __name__)
 
-from application.routes.product import route
+# from application.routes.product import route
+from routes.product import route

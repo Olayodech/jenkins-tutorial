@@ -1,10 +1,10 @@
 version: "3.8"
 services:
   flask-app:
-    # image: olayodech:flask-app-new
+    # image: flaskapp
     build: .
     environment:
-      - SQLALCHEMY_DATABASE_URI=mysql+pymysql://olayodech:12345@db/product-dev-db
+      - SQLALCHEMY_DATABASE_URI=mysql+pymysql://root:12345@db/product_dev_db
     ports:
       - target: 5000
         published: 5000

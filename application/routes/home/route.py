@@ -1,7 +1,9 @@
 from flask import render_template
-from application.routes.home import bp
-from application.models import Product
+# from application.routes.home import bp
+# from application.models import Product
 
+from routes.home import bp
+from models import Product
 
 # @app.route('/')
 # @app.route('/index')
@@ -9,7 +11,7 @@ from application.models import Product
 @bp.route('/index')
 def index():
     user = {'username': 'Charles'}
-    items = [
+    products = [
         {   'id': 1,
             'name': 'Dior',
             'price': 5000,
@@ -27,4 +29,4 @@ def index():
         }
     ]
     products = Product.query.all()
-    return render_template('/home/index.html', title='Home', user=user, items=items, products = products)
+    return render_template('/home/index.html', title='Home', user=user, products = products)

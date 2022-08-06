@@ -16,19 +16,7 @@
                 </div>
           </form>
        </ul>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#">About</a></li>
-          {% if current_user.is_anonymous %}
-          <li><a href="{{ url_for('users.login') }}">Login</a></li>
-          <li><a href="{{ url_for('users.register')}}">Register</a></li>
-          <li><a href="{{ url_for('product.new_product')}}">Create Product</a></li>
-
-          {% else %}
-          <li><a href="{{ url_for('users.logout') }}">Logout</a></li>
-          <li><a href="{{ url_for('users.profile') }}">{{ current_user.username}}</a></li>
-          <li><a href="{{ url_for('product.new_product')}}"></a>Create Product</li>
-          {% endif %}
-        </ul>
+       
     </div>
   </nav>
 <hr>

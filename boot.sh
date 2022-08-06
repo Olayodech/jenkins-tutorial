@@ -2,4 +2,4 @@
 
 source venv/bin/activate
 flask db upgrade
-exec flask run
+exec python3 application/app.py
