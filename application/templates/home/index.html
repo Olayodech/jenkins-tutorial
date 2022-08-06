@@ -4,7 +4,6 @@
     {% for item in products %}  
           
     <div class="row col s4 m1" style="display: inline-flex; margin-right: 50px !important; right: 15px !important; margin-left: 10px !important;"> 
-        <!-- <div class="m4">  -->
             <div class="card small">
                 <a href="{{ url_for('product.product_details', id=item.id)}}">
                     <div class="card-image waves-effect waves-block waves-light">
@@ -22,8 +21,6 @@
                         <button></button>
                     </div>
             </div>
-         <!-- </div> -->
     </div> 
-        <!-- <hr>s -->
     {% endfor %}
 {% endblock %}

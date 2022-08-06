@@ -1,8 +1,11 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
-from application import db, login
+from app import db
 
+# @login.user_loader
+# def load_user(user_id):
+#     return Customer.query.get(id)
 
 class Product(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -37,6 +40,12 @@ class Customer(db.Model):
     def __repr__(self):
         return '<customer {}>'.format(self.name)
     
-@login.user_loader
-def loadCustomer(id):
-    return Customer.query.get(int(id))
+# @login.user_loader
+# def loadCustomer(id):
+#     return Customer.query.get(int(id))
+
+
+
+# @login.user_loader
+# def load_user(id):
+#     return AllUsers.query.get(int(id))

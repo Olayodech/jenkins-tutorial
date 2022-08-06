@@ -1,6 +1,6 @@
 flask
 flask-wtf
-flask-sqlalchemy
+flask_sqlalchemy
 flask-migrate
 flask-login
 pymysql
@@ -11,3 +11,5 @@ python-dotenv
 Werkzeug
 alembic
 flask_material
+email-validator
+cryptography

@@ -1,15 +1,24 @@
 from flask import Flask
 from flask_material import Material
 # from config import Config, DevConfig, ProdConfig
-from config import Config
+# from config import Config
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager
+# from flask_login import LoginManager
+import os
+# import models, routes.users
+
+
+class Config(object):
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'shh ssh rt tthh jjj kkkk'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI') or "sqlite:///mepot.db"
 
 db = SQLAlchemy()
 material =Material()
 migrate = Migrate()
-login = LoginManager()
+# login = LoginManager()
+
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -23,11 +32,11 @@ def create_app(config_class=Config):
     material.init_app(app)
     migrate.init_app(app, db)
 
-    login.init_app(app)
+    # login.init_app(app)
 
-    from application.routes.home import bp as home_bp
-    from application.routes.users import bp as users_bps
-    from application.routes.product import bp as product_bps
+    from routes.home import bp as home_bp
+    from routes.users import bp as users_bps
+    from routes.product import bp as product_bps
 
     app.register_blueprint(home_bp)
     app.register_blueprint(users_bps, url_prefix='/user')
@@ -53,6 +62,12 @@ def create_app(config_class=Config):
 
     return app
 
-login.login_view = 'login'
 
-from application import models
+
+# login.login_view = 'login'
+
+if __name__=="__main__":
+    print(f'Application starting############')
+    app = create_app()
+    app.run(port=5000, debug=True, host='0.0.0.0')
+    

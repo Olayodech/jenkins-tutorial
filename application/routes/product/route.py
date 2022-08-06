@@ -1,8 +1,14 @@
 from flask import render_template, redirect, url_for, flash
-from application.routes.product import bp
-from application.forms.forms import ProductForm
-from application.models import Product
-from application import db
+# from application.routes.product import bp
+# from application.forms.forms import ProductForm
+# from application.models import Product
+# from application import db
+
+from routes.product import bp
+from forms.forms import ProductForm
+from models import Product
+from app import db
+
 
 @bp.route('/product_details/<int:id>', methods=['GET'])
 def product_details(id):

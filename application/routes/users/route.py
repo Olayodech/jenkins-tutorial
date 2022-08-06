@@ -1,10 +1,10 @@
 from flask import render_template, redirect, url_for, flash
-from application.routes.users import bp
-from application.forms.forms import RegisterationForm
-from application.models import Customer
-from application import db
+from routes.users import bp
+from forms.forms import RegisterationForm
+from models import Customer
+from app import db
 from flask_login import current_user, login_user, logout_user
-from application.forms.forms import LoginForm
+from forms.forms import LoginForm
 
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
