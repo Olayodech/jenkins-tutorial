@@ -37,3 +37,15 @@ Future improvement:
     Implement Checkout page 
     Implement password recovery using sendgrid for email
     
+
+CHALLENGES
+
+- 1: As can be seen in the video, the local environment, the app works using a different directory structure which can be found in "MEPOT-ORIGINAL", it uses main.py as the entry point and flask run, however, I couldn't connect to port 5000
+when running in docker (I discussed with my trainer), however, when I stripped down the application to use app.py as entry point and run with "python3 app.py", I was able to connect to port 5000 in docker. Challenges of that
+is the login functionality required for a user to go to cart and required for the login and register options to be replaced by logout in the nav bar are broken. I did not have time to fix it
+given the 1 week sprint. I deployed this to docker
+
+2: I was unable to connect to mysql with pmysql as it kept saying database in use is not found, even though I could connect to port 3306 on mysql workbench and the database and table exists.
+3: At the time of writing this, docker swarm is not configured, it might be configured if I have time but I doubt it.
+
+
