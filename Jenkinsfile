@@ -5,7 +5,7 @@ pipeline{
         registryCredential = 'dockerhub_id'
         dockerImage = ''
         HOME = "${env.WORKSPACE}"
-        git_token = "github_access"
+        git_token = "github_accesses"
     }
    
     agent any 
@@ -13,7 +13,7 @@ pipeline{
             stage ('Check out')
             {
                 steps{
-                    git branch: 'main', credentialsId: 'GitHub_pass_token', url: 'https://github.com/Olayodech/jenkins-tutorial'                   
+                    git branch: 'main', credentialsId: 'github_access', url: 'https://github.com/Olayodech/jenkins-tutorial'                   
                      // sh 'git clone https://olayodech:github.com/Olayodech/jenkins-tutorial.git'
                     sh 'git checkout main'
                 }
