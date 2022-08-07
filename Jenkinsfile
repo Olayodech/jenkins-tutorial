@@ -13,7 +13,7 @@ pipeline{
             stage ('Check out')
             {
                 steps{
-                    // git branch: 'main', credentialsId: 'github_access', url: 'https://github.com/Olayodech/jenkins-tutorial.git'
+                    git branch: 'main', credentialsId: 'github_access', url: 'https://github.com/Olayodech/jenkins-tutorial.git'
                     // sh 'git clone https://olayodech:github.com/Olayodech/jenkins-tutorial.git'
                     sh 'git checkout main'
                 }
@@ -28,10 +28,15 @@ pipeline{
             stage ('Building Docker Image')
             {
                 steps{
-                    script{
-                        docker.withRegistry(registryCredential){
-                            dockerImage=docker.build(registry)
-                        }
+                    // script{
+                    //     docker.withRegistry(registryCredential){
+                    //         // dockerImage=docker.build(registry)
+                    //         docker.buid
+                    //     }
+                    // }
+                    dockerfile{
+                        regisitstyUrl 'https://hub.docker.com'
+                        registryCredentialsId 'registryCredential'
                     }
                 }
             }
