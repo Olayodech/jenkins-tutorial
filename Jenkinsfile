@@ -29,7 +29,7 @@ pipeline{
             {
                 steps{
                     script{
-                        docker.withRegistry(registryCredential){
+                        docker.withRegistry("https://hub.docker.com", registryCredential){
                             dockerImage=docker.build(registry)
                             // docker.buid
                         }
