@@ -13,8 +13,8 @@ pipeline{
             stage ('Check out')
             {
                 steps{
-                    git branch: 'main', credentialsId: 'github_access', url: 'https://github.com/Olayodech/jenkins-tutorial.git'
-                    // sh 'git clone https://olayodech:github.com/Olayodech/jenkins-tutorial.git'
+                    git branch: 'main', credentialsId: 'GitHub_pass_token', url: 'https://github.com/Olayodech/jenkins-tutorial'                   
+                     // sh 'git clone https://olayodech:github.com/Olayodech/jenkins-tutorial.git'
                     sh 'git checkout main'
                 }
             }
@@ -34,10 +34,15 @@ pipeline{
                     //         docker.buid
                     //     }
                     // }
-                    dockerfile{
-                        regisitstyUrl 'https://hub.docker.com'
-                        registryCredentialsId 'registryCredential'
-                    }
+                    // This step should not normally be used in your script. Consult the inline help for details.
+                            withDockerRegistry(credentialsId: 'dockerhub_id', url: 'https://hub.docker.com') {
+                        // some block
+                            dockerImage=docker.build(registry)
+                        }
+                    // dockerfile{
+                    //     regisitstyUrl 'https://hub.docker.com'
+                    //     registryCredentialsId 'registryCredential'
+                    // }
                 }
             }
             stage ('Push Image To Docker Hub')
