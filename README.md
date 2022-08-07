@@ -22,3 +22,18 @@ Technology stack:
 
 See attached image
 techstack.png
+
+
+Development:
+    The project is split into sprint using jira. See jira.png.
+
+Deployment:
+    Deployment of the app is based of git webhook from jenkins which is trigger on pushing from the local dev environment. 
+    See jenkins pipeline.png
+
+Future improvement:
+    Fix mysql db connection issue on docker
+    Fix the product listing page css for user acceptance
+    Implement Checkout page 
+    Implement password recovery using sendgrid for email
+    
