@@ -2,7 +2,7 @@ pipeline{
     environment
     {
         registry = "olayodech/flask-app"
-        registryCredential = 'dockerhub_id'
+        registryCredential = 'docker_access_token'
         dockerImage = ''
         HOME = "${env.WORKSPACE}"
         git_token = "github_access"
