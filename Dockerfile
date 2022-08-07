@@ -1,4 +1,4 @@
-FROM arm64v8/python:3.9-slim
+FROM python:3.6-alpine
 
 EXPOSE 5000
 
