@@ -28,21 +28,12 @@ pipeline{
             stage ('Building Docker Image')
             {
                 steps{
-                    // script{
-                    //     docker.withRegistry(registryCredential){
-                    //         // dockerImage=docker.build(registry)
-                    //         docker.buid
-                    //     }
-                    // }
-                    // This step should not normally be used in your script. Consult the inline help for details.
-                            withDockerRegistry(credentialsId: 'dockerhub_id', url: 'https://hub.docker.com') {
-                        // some block
+                    script{
+                        docker.withRegistry(credentialsId: 'dockerhub_id', url: 'https://hub.docker.com'){
                             dockerImage=docker.build(registry)
+                            // docker.buid
                         }
-                    // dockerfile{
-                    //     regisitstyUrl 'https://hub.docker.com'
-                    //     registryCredentialsId 'registryCredential'
-                    // }
+                    }
                 }
             }
             stage ('Push Image To Docker Hub')
