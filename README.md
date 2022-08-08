@@ -30,6 +30,7 @@ Development:
 Deployment:
     Deployment of the app is based of git webhook from jenkins which is trigger on pushing from the local dev environment. 
     See jenkins pipeline.png
+    ![Alt text](jenkins%20pipeline.png raw=true "Title")
 
 Future improvement:
     Fix mysql db connection issue on docker
@@ -39,6 +40,8 @@ Future improvement:
     
 
 CHALLENGES
+
+My azure free pass account expired on 06/08/2022, hence had to recreate everything on a new account--- This was a major set back.
 
 - 1: As can be seen in the video, the local environment, the app works using a different directory structure which can be found in "MEPOT-ORIGINAL", it uses main.py as the entry point and flask run, however, I couldn't connect to port 5000
 when running in docker (I discussed with my trainer), however, when I stripped down the application to use app.py as entry point and run with "python3 app.py", I was able to connect to port 5000 in docker. Challenges of that
