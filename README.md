@@ -22,15 +22,20 @@ Technology stack:
 
 See attached image
 techstack.png
+    ![Tech stack](jenkins-tut-project/techstack.png?raw=true "Tech stack")
+
 
 
 Development:
     The project is split into sprint using jira. See jira.png.
 
+    ![Jira](jenkins-tut-project/jira.png?raw=true "Jira")
+
+
 Deployment:
     Deployment of the app is based of git webhook from jenkins which is trigger on pushing from the local dev environment. 
     See jenkins pipeline.png
-    ![Alt text](jenkins%20pipeline.png raw=true "Title")
+    ![jenkins pipeline](jenkins pipeline.png?raw=true "Jenkins")
 
 Future improvement:
     Fix mysql db connection issue on docker
